@@ -57,7 +57,7 @@ The user manual is found in `/inst/doc/manual.pdf` within the package directory 
 
 Example code and datasets can be found in `/examples/` within the package directory tree or, once the package is installed, in `/path-to-library/MiRNAQCD/extdata/`, where `path-to-library` can be shown within R by means of the `.libPaths()` command.
 
-The script `example_synthetic_data.R` therein contains a detailed example pipeline concerning synthetic data. The scripts `example_real_data_1.R`, `example_real_data_2.R` provide example pipelines for two real, publicly available datasets. A copy of each dataset is stored in the same folder. Example pipelines are also discussed in the user manual `/docs/manual.pdf`.
+The script `example_synthetic_dataset.R` therein contains a detailed example pipeline concerning synthetic data. The scripts `example_real_dataset_1.R`, `example_real_dataset_2.R` provide example pipelines for two real, publicly available datasets. A copy of each dataset is stored in the same folder. Example pipelines are also discussed in the user manual `/docs/manual.pdf`.
 
 
 ## Research
