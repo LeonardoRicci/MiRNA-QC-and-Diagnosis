@@ -1,4 +1,6 @@
-/docs/
 /examples/
 /setup/
 README.md
+.gitignore
+.git
+..Rcheck

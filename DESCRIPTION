@@ -1,11 +1,17 @@
 Package: MiRNAQCD
-Version: 1.0
+Version: 1.1
 Encoding: UTF-8
-Date: 2020-01-17
+Date: 2020-06-29
 Title: MiRNA Quality Control and Diagnosis
-Description: A set of functions to carry out quality control, training and classification analyses on datasets containing MiRNA multiplets.
-Author: Michele Castelluzzo <michele.castelluzzo@unitn.it>, Alessio Perinelli, <alessio.perinelli@unitn.it>, Michela A. Denti <michela.denti@unitn.it>, Leonardo Ricci <leonardo.ricci@unitn.it>
-Maintainer: Leonardo Ricci <leonardo.ricci@unitn.it>
+Description: The package provides a set of functions to carry out quality control, training and classification analyses on datasets containing micro RNA (miRNA) multiplets. The package implements the method introduced in L. Ricci, V. Del Vescovo, C. Cantaloni, M. Grasso, M. Barbareschi and M. A. Denti, Statistical analysis of a Bayesian classifier based on the expression of miRNAs, BMC Bioinformatics 16:287, 2015 <doi:10.1186/s12859-015-0715-9>, which relies on a Bayesian approach to train a binary classifier. Please cite the work if you use the package for your analyses. DISCLAIMER: The software in this package is for general research purposes only and is thus provided WITHOUT ANY WARRANTY. It is NOT intended to form the basis of clinical decisions. Please refer to the GNU General Public License (GPL) v3 for further information.
+Authors@R: c(
+	person("Michele", "Castelluzzo", email = "michele.castelluzzo@unitn.it", role = "aut"),
+	person("Alessio", "Perinelli", email = "alessio.perinelli@unitn.it", role = "cre"),
+	person("Simone", "Detassis", email = "simone.detassis@unitn.it", role = "aut"),
+	person("Michela Alessandra", "Denti", email = "michela.denti@unitn.it", role = "aut"),
+	person("Leonardo", "Ricci", email = "leonardo.ricci@unitn.it", role = "aut"))
+Maintainer: Alessio Perinelli <alessio.perinelli@unitn.it>
 License: GPL-3
 RoxygenNote: 7.0.0
-Imports: stats, utils, ggplot2, pROC, tools
+Imports: stats, utils, ggplot2, pROC
+Suggests: testthat

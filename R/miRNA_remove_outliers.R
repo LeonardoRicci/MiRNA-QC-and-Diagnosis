@@ -2,7 +2,7 @@
 ##
 ## This file is part of the miRNA-QC-and-Diagnosis software package.
 ##
-## Version 1.0 - April 2020
+## Version 1.0 - June 2020
 ##
 ##
 ## The miRNA-QC-and-Diagnosis package is free software; you can use it,
@@ -12,7 +12,7 @@
 ## level of the package distribution.
 ##
 ## Authors:
-##	Michele Castelluzzo (1), Alessio Perinelli (1),
+##	Michele Castelluzzo (1), Alessio Perinelli (1), Simone Detassis (2),
 ##	Michela A. Denti (2) and Leonardo Ricci (1,3)
 ##	(1) Department of Physics, University of Trento, 38123 Trento, Italy
 ##	(2) Department of Cellular, Computational and Integrative Biology
@@ -48,24 +48,31 @@
 #' Beware! Entries of the dataset for which 'miRNA' is not present in the data frame of critical sigma values are copied in output without any filtering.
 #'
 #' @return A data frame corresponding to a copy of the input dataset devoid of outliers. The output data frame thus contains the columns 'Subject', 'miRNA', 'Mean', 'StdDev', 'Variance', 'SampleSize' and possibly 'Class'.
+#'
+#' Please refer to the user manual installed in "/path-to-library/MiRNAQCD/doc/manual.pdf" for detailed function documentation. The path "/path-to-library" can be shown from R by calling ".libPaths()"
+#'
+#' @examples
+#' requiredDataFile = paste(system.file(package="MiRNAQCD"),
+#'			"/extdata/test_dataset_alpha_prep.dat", sep='')
+#' myDataFrame <- read.table(file=requiredDataFile, header=TRUE)
+#' requiredQtFile = paste(system.file(package="MiRNAQCD"),
+#'			"/extdata/test_dataset_alpha_qt.dat", sep='')
+#' qtDataFrame <- read.table(file=requiredQtFile, header=TRUE)
+#' myDataFrameCleaned <- miRNA_removeOutliers(myDataFrame, qtDataFrame)
 
 #' @export
 miRNA_removeOutliers <- function(inputDataset, qualityThresholdFrame) {
 
-	cat("\nLOG: miRNA_removeOutliers() called.\n")
-
 	if (!(("Subject" %in% colnames(inputDataset)) & ("miRNA" %in% colnames(inputDataset)) & ("Mean" %in% colnames(inputDataset)) & ("StdDev" %in% colnames(inputDataset)) & ("SampleSize" %in% colnames(inputDataset))))  {
-		cat("ERROR: unsuitable dataset format. Dataset must contain columns 'Subject', 'miRNA', 'Mean', 'StdDev', 'SampleSize'.\n")
-		return(NULL)
+		stop("ERROR: unsuitable dataset format. Dataset must contain columns 'Subject', 'miRNA', 'Mean', 'StdDev', 'SampleSize'.\n")
 	}
 
 	if (!(("miRNA" %in% colnames(qualityThresholdFrame)) & ("QualityThreshold" %in% colnames(qualityThresholdFrame))))  {
-		cat("ERROR: unsuitable qualityThresholdFrame format. Data frame must contain columns 'miRNA', 'QualityThreshold'.\n")
-		return(NULL)
+		stop("ERROR: unsuitable qualityThresholdFrame format. Data frame must contain columns 'miRNA', 'QualityThreshold'.\n")
 	}
 
 	if (length(inputDataset[1,]) > 7) {
-		cat("WARNING: more than 7 dataset columns. Columns other than 'Subject', 'miRNA', 'Mean', 'StdDev', 'SampleSize', 'Class' will not be present in output.\n")
+		warning("WARNING: more than 7 dataset columns. Columns other than 'Subject', 'miRNA', 'Mean', 'StdDev', 'SampleSize', 'Class' will not be present in output.\n")
 	}
 
 	if ("Class" %in% colnames(inputDataset)) {

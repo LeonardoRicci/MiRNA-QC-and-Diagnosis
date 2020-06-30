@@ -2,7 +2,7 @@
 ##
 ## This file is part of the miRNA-QC-and-Diagnosis software package.
 ##
-## Version 1.0 - April 2020
+## Version 1.0 - June 2020
 ##
 ##
 ## The miRNA-QC-and-Diagnosis package is free software; you can use it,
@@ -12,7 +12,7 @@
 ## level of the package distribution.
 ##
 ## Authors:
-##	Michele Castelluzzo (1), Alessio Perinelli (1),
+##	Michele Castelluzzo (1), Alessio Perinelli (1), Simone Detassis (2),
 ##	Michela A. Denti (2) and Leonardo Ricci (1,3)
 ##	(1) Department of Physics, University of Trento, 38123 Trento, Italy
 ##	(2) Department of Cellular, Computational and Integrative Biology
@@ -46,18 +46,21 @@
 #' @param sep Field separator character; the default is any white space (one or more spaces or tabulations).
 #'
 #' @return A data frame containing all the columns present in the file.
+#'
+#' Please refer to the user manual installed in "/path-to-library/MiRNAQCD/doc/manual.pdf" for detailed function documentation. The path "/path-to-library" can be shown from R by calling ".libPaths()"
+#'
+#' @examples
+#' requiredFile = paste(system.file(package="MiRNAQCD"),
+#'		"/extdata/test_dataset_alpha_threshold.txt", sep='')
+#' threshold <- miRNA_loadDiagnosticThreshold(requiredFile)
 
 #' @export
 miRNA_loadDiagnosticThreshold <- function(inputFileName, sep="") {
 
-	cat("\nLOG: miRNA_loadDiagnosticThreshold() called.\n")
-
 	if (!file.exists(inputFileName)) {
-		cat("ERROR: cannot read ", inputFileName, ". No such file or directory.\n")
-		return(NULL)
+		stop("ERROR: cannot read ", inputFileName, ". No such file or directory.\n")
 	} else if (file.access(inputFileName, mode=4)) {
-		cat("ERROR: cannot read ", inputFileName, ". Check read permission.\n")
-		return(NULL)
+		stop("ERROR: cannot read ", inputFileName, ". Check read permission.\n")
 	}
 
 	if (sep == "") {
@@ -67,11 +70,8 @@ miRNA_loadDiagnosticThreshold <- function(inputFileName, sep="") {
 	}
 
 	if (!(("Threshold" %in% colnames(readFrame)) & ("DeltaThreshold" %in% colnames(readFrame)) & ("ChiUp" %in% colnames(readFrame)) & ("DChiUp" %in% colnames(readFrame)) & ("ChiDown" %in% colnames(readFrame))  & ("DChiDown" %in% colnames(readFrame)) ))  {
-		cat("ERROR: unsuitable dataset format. Dataset must contain columns 'Threshold', 'DeltaThreshold', 'ChiUp', 'DChiUp', 'ChiDown', 'DChiDown'.\n")
-		return(NULL)
+		stop("ERROR: unsuitable dataset format. Dataset must contain columns 'Threshold', 'DeltaThreshold', 'ChiUp', 'DChiUp', 'ChiDown', 'DChiDown'.\n")
 	}
-
-	cat("LOG:\tThreshold values loaded from ", inputFileName, " successfully.\n", sep="")
 
 	return(readFrame)
 }

@@ -2,7 +2,7 @@
 ##
 ## This file is part of the miRNA-QC-and-Diagnosis software package.
 ##
-## Version 1.0 - April 2020
+## Version 1.0 - June 2020
 ##
 ##
 ## The miRNA-QC-and-Diagnosis package is free software; you can use it,
@@ -12,7 +12,7 @@
 ## level of the package distribution.
 ##
 ## Authors:
-##	Michele Castelluzzo (1), Alessio Perinelli (1),
+##	Michele Castelluzzo (1), Alessio Perinelli (1), Simone Detassis (2),
 ##	Michela A. Denti (2) and Leonardo Ricci (1,3)
 ##	(1) Department of Physics, University of Trento, 38123 Trento, Italy
 ##	(2) Department of Cellular, Computational and Integrative Biology
@@ -68,7 +68,6 @@ miRNA_plotROC <- function(inputDataset, outputFileLabel, plotFormat="pdf") {
 
 	pROC_data$group <- rep(factor(1), times=c(nrow(pROC_data)))
 
-	options(warn=-1)
 	plotObject <- ggplot2::ggplot(data=pROC_data, ggplot2::aes(x=pROC_data$specificities, y=pROC_data$sensitivities, colour=pROC_data$group)) +
 		ggplot2::geom_line(size = 2, alpha = 0.9) +
 		ggplot2::labs(x = "1 - Specificity", y = "Sensitivity") +
@@ -80,7 +79,6 @@ miRNA_plotROC <- function(inputDataset, outputFileLabel, plotFormat="pdf") {
 		png = suppressMessages(ggplot2::ggsave(paste(sep="", outputFileLabel, "_ROC.png"), device="png")),		# png case
 		suppressMessages(ggplot2::ggsave(paste(sep="", outputFileLabel, "_ROC.pdf"), device=grDevices::cairo_pdf))	# default pdf
 	)
-	options(warn=-0)
 
 	return(plotObject)
 }

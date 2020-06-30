@@ -2,7 +2,7 @@
 ##
 ## This file is part of the miRNA-QC-and-Diagnosis software package.
 ##
-## Version 1.0 - April 2020
+## Version 1.0 - June 2020
 ##
 ##
 ## The miRNA-QC-and-Diagnosis package is free software; you can use it,
@@ -12,7 +12,7 @@
 ## level of the package distribution.
 ##
 ## Authors:
-##	Michele Castelluzzo (1), Alessio Perinelli (1),
+##	Michele Castelluzzo (1), Alessio Perinelli (1), Simone Detassis (2),
 ##	Michela A. Denti (2) and Leonardo Ricci (1,3)
 ##	(1) Department of Physics, University of Trento, 38123 Trento, Italy
 ##	(2) Department of Cellular, Computational and Integrative Biology
@@ -46,19 +46,24 @@
 #' @param multipletSize Size of the multiplets to be considered. Any multiplet of different size is ignored.
 #'
 #' @return A pre-processed data frame, containing the columns 'Subject', 'miRNA', 'Mean', 'StdDev', 'SampleSize', and possibly 'Class'.
+#'
+#' Please refer to the user manual installed in "/path-to-library/MiRNAQCD/doc/manual.pdf" for detailed function documentation. The path "/path-to-library" can be shown from R by calling ".libPaths()"
+#'
+#' @examples
+#' requiredFile = paste(system.file(package="MiRNAQCD"), "/extdata/test_dataset_alpha.dat", sep='')
+#' myDataFrame <- read.table(file=requiredFile, header=TRUE)
+#' myPreprocessedDataFrame <- miRNA_expressionPreprocessing(myDataFrame, 3)
+#'
 
 #' @export
 miRNA_expressionPreprocessing <- function(inputDataset, multipletSize) {
 
-	cat("\nLOG: miRNA_expressionPreprocessing() called.\n")
-
 	if (!(("miRNA" %in% colnames(inputDataset)) & ("Subject" %in% colnames(inputDataset)) & ("Value" %in% colnames(inputDataset))))  {
-		cat("ERROR: unsuitable dataset format. Dataset must contain at least columns 'miRNA', 'Subject', 'Value'.\n")
-		return(NULL)
+		stop("ERROR: unsuitable dataset format. Dataset must contain at least columns 'miRNA', 'Subject', 'Value'.\n")
 	}
 
 	if (length(inputDataset[1,]) > 4) {
-		cat("WARNING: more than 4 dataset columns. Columns other than 'miRNA', 'Subject', 'Value', 'Class' will be ignored.\n")
+		warning("WARNING: more than 4 dataset columns. Columns other than 'miRNA', 'Subject', 'Value', 'Class' will be ignored.\n")
 	}
 
 	if ("Class" %in% colnames(inputDataset)) {
@@ -77,8 +82,7 @@ miRNA_expressionPreprocessing <- function(inputDataset, multipletSize) {
 	for (subject in setOfSubjects) {
 		singleSubjectFrame <- subset(selectedDataset, selectedDataset$Subject == subject)
 		if (length(unique(singleSubjectFrame$Class)) > 1) {
-			cat("ERROR: multiple classes for some of the subjects. Each subject's entry must report the same class.\n")
-			return(NULL)
+			stop("ERROR: multiple classes for some of the subjects. Each subject's entry must report the same class.\n")
 		}
 	}
 
