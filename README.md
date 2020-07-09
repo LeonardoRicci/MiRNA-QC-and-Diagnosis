@@ -10,7 +10,7 @@ The software package is described in the following work:
 > M. Castelluzzo, A. Perinelli, S. Detassis, M. A. Denti and L. Ricci, _MiRNA-QC-and-Diagnosis: An R package for diagnosis based on MiRNA expression_, SoftwareX __12__:100569, 2020.  
 DOI: [10.1016/j.softx.2020.100569](https://doi.org/10.1016/j.softx.2020.100569)
 
-Please cite these references in works that use the present package. Citation can also be displayed in R by typing
+__Please cite both these references in works that use the present package.__ Bibliography entries can be also displayed within R by typing
 ```R
 citation("MiRNAQCD")
 # or, to get BibTeX items,
@@ -36,7 +36,7 @@ This package requires the packages `stats`, `utils`, `tools`, `pROC` and `ggplot
 (2) Department of Cellular, Computational and Integrative Biology (CIBIO), University of Trento, 38123 Trento, Italy.  
 (3) CIMeC, Center for Mind/Brain Sciences, University of Trento, 38068 Rovereto, Italy.
 
-If the package turns out to be useful for your research, please cite our two papers [1](https://dx.doi.org/10.1186/s12859-015-0715-9), [2](https://doi.org/10.1016/j.softx.2020.100569):  
+__If the package turns out to be useful for your research, please cite our two papers__ [[1](https://dx.doi.org/10.1186/s12859-015-0715-9), [2](https://doi.org/10.1016/j.softx.2020.100569)]:
 > [1] L. Ricci, V. Del Vescovo, C. Cantaloni, M. Grasso, M. Barbareschi and M. A. Denti, _Statistical analysis of a Bayesian classifier based on the expression of miRNAs_, BMC Bioinformatics __16__:287, 2015. doi: [10.1186/s12859-015-0715-9](https://dx.doi.org/10.1186/s12859-015-0715-9)
 
 > [2] M. Castelluzzo, A. Perinelli, S. Detassis, M. A. Denti and L. Ricci, _MiRNA-QC-and-Diagnosis: An R package for diagnosis based on MiRNA expression_, SoftwareX __12__:100569, 2020.  
