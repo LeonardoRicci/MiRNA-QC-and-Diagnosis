@@ -1,7 +1,5 @@
 # MiRNA-QC-and-Diagnosis package
 
-The package is available on [CRAN](https://CRAN.R-project.org/) at [https://CRAN.R-project.org/package=MiRNAQCD](https://CRAN.R-project.org/package=MiRNAQCD). 
-
 ## Overview
 
 The MiRNA-QC-and-Diagnosis (Micro RNA Quality Control and Diagnosis) is an R package to carry out training and classification analyses on datasets containing multiplets of MiRNA expression. This package contains a set of functions that implement the analysis algorithm first proposed in
@@ -48,10 +46,10 @@ DOI: [10.1016/j.softx.2020.100569](https://doi.org/10.1016/j.softx.2020.100569)
 ## Software info
 
 The package is available on [CRAN](https://CRAN.R-project.org/) at [https://CRAN.R-project.org/package=MiRNAQCD](https://CRAN.R-project.org/package=MiRNAQCD).  
-The current package version on CRAN is __MiRNAQCD 1.1__.
+The current package version on CRAN is __MiRNAQCD 1.1.1__.
 
 The [GitHub repository](https://github.com/LeonardoRicci/MiRNA-QC-and-Diagnosis) stores the development version of the package, which typically is a few steps ahead of the CRAN release.  
-The current package version on GitHub is __MiRNAQCD 1.1__.
+The current package version on GitHub is __MiRNAQCD 1.1.1__.
 
 
 ## Documentation
