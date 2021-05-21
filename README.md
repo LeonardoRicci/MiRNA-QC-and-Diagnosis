@@ -46,10 +46,10 @@ DOI: [10.1016/j.softx.2020.100569](https://doi.org/10.1016/j.softx.2020.100569)
 ## Software info
 
 The package is available on [CRAN](https://CRAN.R-project.org/) at [https://CRAN.R-project.org/package=MiRNAQCD](https://CRAN.R-project.org/package=MiRNAQCD).  
-The current package version on CRAN is __MiRNAQCD 1.1.1__.
+The current package version on CRAN is __MiRNAQCD 1.1.2__.
 
 The [GitHub repository](https://github.com/LeonardoRicci/MiRNA-QC-and-Diagnosis) stores the development version of the package, which typically is a few steps ahead of the CRAN release.  
-The current package version on GitHub is __MiRNAQCD 1.1.1__.
+The current package version on GitHub is __MiRNAQCD 1.1.2__.
 
 
 ## Documentation
