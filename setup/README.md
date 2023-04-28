@@ -1,7 +1,7 @@
 ## Requirements
 
 The package requires R version 4.0 or later.
-It also requires the following packages to be installed: `stats`, `utils`, `tools`, `ggplot2`, `pROC`.  
+It also requires the following packages to be installed: `stats`, `utils`, `tools`, `ggplot2`, `pROC`.
 To install any of these packages, just type (from within R) `install.packages("package_name")`
 
 ## Setup
@@ -10,12 +10,12 @@ The package can be installed manually from the compressed archive stored in this
 
 On all platforms, launch R in this directory and type:
 ```
-	install.packages("MiRNAQCD_1.1.tar.gz", type="source")
+	install.packages("MiRNAQCD_1.1.3.tar.gz", type="source")
 ```
 Please note that you will need permissions to write in R's library folder in order to install the package.
 Alternatively, from within this directory, open a terminal and type:
 ```
-	R CMD INSTALL MiRNAQCD_1.1.tar.gz
+	R CMD INSTALL MiRNAQCD_1.1.3.tar.gz
 ```
 Again, you will need permissions to write in R's library folder.
 
